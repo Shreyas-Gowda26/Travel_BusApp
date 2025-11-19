@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pymongo
+pydantic
+passlib[bcrypt]
+python-jose[cryptography]
+bcrypt == 4.3.0
+bson == 0.5.10
