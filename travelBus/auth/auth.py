@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from passlib.context import CryptContext
 from .token import create_access_token
 from travelBus.schemas.users_schema import UserLogin,UserCreate,UserResponse   # adjust import path
-from database import users_collection
+from travelBus.database import users_collection
 
 router = APIRouter(tags=["Auth"])
 
@@ -22,7 +22,7 @@ async def signup(user: UserCreate):
     }
 
 @router.post("/login")
-async def login(request: UserLogin):   # <-- using your Pydantic model
+async def login(request: UserLogin):   
     user = users_collection.find_one({"email": request.email})
 
     if not user:
